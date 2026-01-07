@@ -1,50 +1,32 @@
+var grow = 0
 var btn = document.querySelector('button')
-var main = document.querySelector('main')
-var arr = ['hey! I am Dimpi', 'Learning with Sheryians is fun.', 'harsh bahiya ki jai ho', 'Sarthak bhaiya is cute', 'keep motivated']
+var h2 = document.querySelector('h2')
+var inner = document.querySelector('.inner')
 
-btn.addEventListener('click',()=>{
+btn.addEventListener('click', function() {
+        
+    btn.style.pointerEvents = 'none'
 
-    var h1 = document.createElement('h1')
-    var x = Math.random()*80
-    var y = Math.random()*80
-    var r = Math.random()*360
-    var scl = Math.random()*3
-
-    var a = Math.floor(Math.random()*arr.length)
-    var c1 = Math.floor(Math.random()*256)
-    var c2 = Math.floor(Math.random()*256)
-    var c3 = Math.floor(Math.random()*256)
-
-    h1.innerHTML = arr[a]
-
-    h1.style.position = 'absolute'
-    h1.style.color = `rgb(${c1},${c2},${c3})`
-
-    h1.style.left = x+'%'
-    h1.style.top = y+'%'
-    h1.style.rotate = r+'deg'
-    h1.style.scale = scl
+    var num = 30 + Math.floor(Math.random()*50)
+    console.log('your file will be downloaded in', num/10, 'seconds');
+    
     
 
+    var  int = setInterval(() => {
+        grow++
+        h2.innerHTML = grow + '%'
+        inner.style.width = grow + '%'
+    }, num);
+
+    setTimeout(() => {
+    clearInterval(int)
+    btn.innerHTML = 'Downloaded'
+    btn.style.opacity = '0.5'
     
-    main.appendChild(h1)
-    // var div = document.createElement('div')
-    // var x = Math.random()*100
-    // var y = Math.random()*100
-    // var r = Math.random()*360
+    
 
-    // var c1 = Math.floor(Math.random()*256)
-    // var c2 = Math.floor(Math.random()*256)
-    // var c3 = Math.floor(Math.random()*256)
+}, num*100);
 
-    // div.style.height = '50px'
-    // div.style.width = '50px'
-    // div.style.position = 'absolute'
-    // div.style.backgroundColor = `rgb(${c1},${c2},${c3})`
-
-    // div.style.top = y+'%'
-    // div.style.left = x+'%'
-    // div.style.rotate = r+'deg'
-   
-    // main.appendChild(div)
+    
 })
+
