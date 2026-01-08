@@ -1,32 +1,20 @@
-var grow = 0
-var btn = document.querySelector('button')
-var h2 = document.querySelector('h2')
-var inner = document.querySelector('.inner')
+var h5 = document.querySelector('h5')
 
-btn.addEventListener('click', function() {
+var btn = document.querySelector('#add')
+
+var check = 0
+
+btn.addEventListener('click', function(){
+    if(check == 0){
+        h5.innerHTML = "Friends"
+        h5.style.color = "green"
+        btn.innerHTML ="Remove Friend"
+        check =1
         
-    btn.style.pointerEvents = 'none'
-
-    var num = 30 + Math.floor(Math.random()*50)
-    console.log('your file will be downloaded in', num/10, 'seconds');
-    
-    
-
-    var  int = setInterval(() => {
-        grow++
-        h2.innerHTML = grow + '%'
-        inner.style.width = grow + '%'
-    }, num);
-
-    setTimeout(() => {
-    clearInterval(int)
-    btn.innerHTML = 'Downloaded'
-    btn.style.opacity = '0.5'
-    
-    
-
-}, num*100);
-
-    
+    }else{
+        h5.innerHTML = "Stranger"
+        h5.style.color = "red"
+        btn.innerHTML ="Add Friend"
+        check =0
+    }
 })
-
